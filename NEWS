@@ -1,4 +1,8 @@
 -------------------------------------------------
+version 1.1.0, 2016-10-28
+- conv_multiunit(): new function
+
+-------------------------------------------------
 version 1.0.0, 2016-07-26
 - conv_dim():	new function
 - conv_unit():	new function
