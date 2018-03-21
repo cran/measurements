@@ -143,6 +143,8 @@
 	data.frame(dim = 'pressure', unit = 'torr', std = 760),
 	data.frame(dim = 'pressure', unit = 'mmHg', std = 760),
 	data.frame(dim = 'pressure', unit = 'inHg', std = 1/(3386.389/101325)),
+	data.frame(dim = 'pressure', unit = 'cmH2O', std = 101325 / 98.0665),
+	data.frame(dim = 'pressure', unit = 'inH2O', std = 101325 / 248.84),
 	data.frame(dim = 'pressure', unit = 'mbar', std = 1013.25),
 	data.frame(dim = 'pressure', unit = 'bar', std = 1.01325),
 	data.frame(dim = 'pressure', unit = 'dbar', std = 10.1325),
@@ -155,7 +157,9 @@
 	data.frame(dim = 'speed', unit = 'inch_per_sec', std = 100/2.54),
 	data.frame(dim = 'speed', unit = 'ft_per_sec', std = 100/2.54/12),
 	data.frame(dim = 'speed', unit = 'kph', std = 1e-3*3600),
+	data.frame(dim = 'speed', unit = 'km_per_hr', std = 1e-3*3600),
 	data.frame(dim = 'speed', unit = 'mph', std = 100/2.54/12/5280*3600),
+	data.frame(dim = 'speed', unit = 'mi_per_hr', std = 100/2.54/12/5280*3600),
 	data.frame(dim = 'speed', unit = 'km_per_day', std = 1e-3*3600*24),
 	data.frame(dim = 'speed', unit = 'mi_per_day', std = 100/2.54/12/5280*3600*24),
 	data.frame(dim = 'speed', unit = 'knot', std = 1/1852*3600),
@@ -213,7 +217,7 @@ conv_unit_options = lapply(split(.conversions$unit, .conversions$dim, drop = TRU
 #'	 \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
 #'	 \item{Mass}{ug, mg, g, kg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
 #'	 \item{Power}{uW, mW, W, kW, MW, GW, erg_per_sec, cal_per_sec, cal_per_hr, Cal_per_sec, Cal_per_hr, BTU_per_sec, BTU_per_hr, hp}
-#'	 \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, mbar, bar, dbar, psi}
+#'	 \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, cmH2O, inH2O, mbar, bar, dbar, psi}
 #'	 \item{Speed}{mm_per_sec, cm_per_sec, m_per_sec, km_per_sec, inch_per_sec, ft_per_sec, kph, mph, km_per_day, mi_per_day, knot, mach, light}
 #'	 \item{Temperature}{C, F, K, R}
 #'	 \item{Volume}{ul, ml, dl, l, cm3, dm3, m3, km3, us_tsp, us_tbsp, us_oz, us_cup, us_pint, us_quart, us_gal, inch3, ft3, mi3, imp_tsp, imp_tbsp, imp_oz, imp_cup, imp_pint, imp_quart, imp_gal}
@@ -232,6 +236,8 @@ conv_unit_options = lapply(split(.conversions$unit, .conversions$dim, drop = TRU
 #'	 \item{Flow}{All gallon-based units are US gallons.}
 #'	 \item{Mass}{All non-metric units are based on the avoirdupois system.}
 #'	 \item{Power}{hp is mechanical horsepower, or 745.69 W.}
+#'	 \item{Pressure}{cmH2O is defined at 4 °C.}
+#'	 \item{Pressure}{inH2O is defined at 60 °F.}
 #'	 \item{Speed}{mach is calculated at sea level at 15 °C.}
 #' }
 #' @seealso \code{\link{conv_unit_options}}, \code{\link{conv_dim}}
@@ -251,14 +257,12 @@ conv_unit_options = lapply(split(.conversions$unit, .conversions$dim, drop = TRU
 #' @encoding UTF-8
 #' @export
 
-conv_unit = function(x, from, to)
-{
+conv_unit = function(x, from, to){
 	unit = std = NULL
 	if(nrow(subset(.conversions,unit==from,dim))==0) stop('the \'from\' argument is not an acceptable unit.')
 	if(nrow(subset(.conversions,unit==to,dim))==0) stop('the \'to\' argument is not an acceptable unit.')
 	if(subset(.conversions,unit==from,dim)!=subset(.conversions,unit==to,dim)) stop('these units cannot be converted because they are of different dimensions. Try using conv_dim().')
-	if((from=='C' | from=='F' | from=='K' | from=='R') & (to=='C' | to=='F' | to=='K' | to=='R'))
-	{
+	if((from=='C' | from=='F' | from=='K' | from=='R') & (to=='C' | to=='F' | to=='K' | to=='R')){
 		frzC=0.01
 		frzF=32.018
 		frzK=273.16
@@ -274,19 +278,21 @@ conv_unit = function(x, from, to)
 		prop=(x-get(paste('frz',from,sep='')))/get(paste('range',from,sep=''))
 		return(prop*get(paste('range',to,sep=''))+get(paste('frz',to,sep='')))
 	}
-	if(from %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec') & to %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec'))
-	{
+	if(from %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec') & to %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec')){
 		neg = grepl('-', x)
 		x = gsub('-', '', x)
-		if(from == 'dec_deg') secs = as.numeric(x) * 3600
-		if(from == 'deg_dec_min') secs = lapply(split(as.numeric(unlist(strsplit(x, ' '))) * c(3600, 60), f = rep(1:length(x), each = 2)), sum)
-		if(from == 'deg_min_sec') secs = lapply(split(as.numeric(unlist(strsplit(x ,' '))) * c(3600, 60, 1), f = rep(1:length(x), each = 3)), sum)
+		NAs = is.na(x)
+		x_na_free = x[!NAs]
+		if(from == 'dec_deg') secs = as.numeric(x_na_free) * 3600
+		if(from == 'deg_dec_min') secs = lapply(split(as.numeric(unlist(strsplit(x_na_free, ' '))) * c(3600, 60), f = rep(1:length(x_na_free), each = 2)), sum)
+		if(from == 'deg_min_sec') secs = lapply(split(as.numeric(unlist(strsplit(x_na_free ,' '))) * c(3600, 60, 1), f = rep(1:length(x_na_free), each = 3)), sum)
 		if(to == 'dec_deg') inter = as.character(lapply(secs, function(y) y / 3600))
 		if(to == 'deg_dec_min') inter = paste(lapply(secs, function(y) y %/% 3600), lapply(secs, function(y) y %% 3600 / 60))
 		if(to == 'deg_min_sec') inter = paste(lapply(secs, function(y) y %/% 3600), lapply(secs, function(y) y %% 3600 %/% 60), lapply(secs, function(y) y %% 3600 %% 60))
-		inter = paste0(ifelse(neg, '-', ''), inter)
-		inter[grepl('NA', inter)] = NA
-		return(inter)
+		x[!NAs] = inter
+		x = paste0(ifelse(neg, '-', ''), x)
+		x[grepl('NA', x)] = NA
+		return(x)
 	}
 	value = x / subset(.conversions, unit == from, std, drop = TRUE)
 	return(value * subset(.conversions, unit == to, std, drop = TRUE))

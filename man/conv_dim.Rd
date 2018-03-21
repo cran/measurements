@@ -48,10 +48,9 @@ conv_dim(x_unit = "C", trans = 0.8, trans_unit = "C_per_psi", y = 4, y_unit = "k
 conv_dim(x = c(60, 80), x_unit = "ft3", trans_unit = "kg_per_l", y = c(6e6, 4e6), y_unit = "g")
 
 }
-\author{
-Matthew A. Birk, \email{matthewabirk@gmail.com}
-}
 \seealso{
 \code{\link{conv_unit_options}}, \code{\link{conv_unit}}
 }
-
+\author{
+Matthew A. Birk, \email{matthewabirk@gmail.com}
+}

@@ -20,10 +20,9 @@ conv_multiunit(x = 10, from = "ft / hr * F", to = "m / min * C")
 conv_multiunit(x = 1:100, from = "gal_per_min * ft / psi * hp", to = "l_per_hr * km / kPa * kW")
 
 }
-\author{
-Matthew A. Birk, \email{matthewabirk@gmail.com}
-}
 \seealso{
 \code{\link{conv_unit}}, \code{\link{conv_unit_options}}, \code{\link{conv_dim}}
 }
-
+\author{
+Matthew A. Birk, \email{matthewabirk@gmail.com}
+}

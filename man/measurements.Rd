@@ -12,4 +12,3 @@ Collection of tools to make working with physical measurements easier. Convert b
 \author{
 Matthew A. Birk, \email{matthewabirk@gmail.com}
 }
-

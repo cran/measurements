@@ -22,6 +22,8 @@ Shows what units of measurement can be converted with the function \code{\link{c
   \item{Energy}{cal is a thermochemical calorie (4.184 J) and Cal is 1000 cal (kcal or 4184 J).}
   \item{Mass}{All non-metric units are based on the avoirdupois system.}
   \item{Power}{hp is mechanical horsepower, or 745.69 W.}
+ \item{Pressure}{cmH2O is defined at 4 °C.}
+ \item{Pressure}{inH2O is defined at 60 °F.}
   \item{Speed}{mach is calculated at sea level at 15 °C.}
 }
 }
@@ -30,11 +32,10 @@ conv_unit_options
 conv_unit_options$pressure
 
 }
-\author{
-Matthew A. Birk, \email{matthewabirk@gmail.com}
-}
 \seealso{
 \code{\link{conv_unit}}
 }
+\author{
+Matthew A. Birk, \email{matthewabirk@gmail.com}
+}
 \keyword{datasets}
-

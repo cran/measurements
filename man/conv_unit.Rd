@@ -30,7 +30,7 @@ Converts common units of measurement for a variety of dimensions. See \code{\lin
  \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
  \item{Mass}{ug, mg, g, kg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
  \item{Power}{uW, mW, W, kW, MW, GW, erg_per_sec, cal_per_sec, cal_per_hr, Cal_per_sec, Cal_per_hr, BTU_per_sec, BTU_per_hr, hp}
- \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, mbar, bar, dbar, psi}
+ \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, cmH2O, inH2O, mbar, bar, dbar, psi}
  \item{Speed}{mm_per_sec, cm_per_sec, m_per_sec, km_per_sec, inch_per_sec, ft_per_sec, kph, mph, km_per_day, mi_per_day, knot, mach, light}
  \item{Temperature}{C, F, K, R}
  \item{Volume}{ul, ml, dl, l, cm3, dm3, m3, km3, us_tsp, us_tbsp, us_oz, us_cup, us_pint, us_quart, us_gal, inch3, ft3, mi3, imp_tsp, imp_tbsp, imp_oz, imp_cup, imp_pint, imp_quart, imp_gal}
@@ -45,6 +45,8 @@ The conversion values have been defined based primarily from international weigh
  \item{Flow}{All gallon-based units are US gallons.}
  \item{Mass}{All non-metric units are based on the avoirdupois system.}
  \item{Power}{hp is mechanical horsepower, or 745.69 W.}
+ \item{Pressure}{cmH2O is defined at 4 °C.}
+ \item{Pressure}{inH2O is defined at 60 °F.}
  \item{Speed}{mach is calculated at sea level at 15 °C.}
 }
 }
@@ -61,10 +63,9 @@ conv_unit("33 1 1", "deg_min_sec", "dec_deg")
 conv_unit(c("101 44.32","3 19.453"), "deg_dec_min", "deg_min_sec")
 
 }
-\author{
-Matthew A. Birk, \email{matthewabirk@gmail.com}
-}
 \seealso{
 \code{\link{conv_unit_options}}, \code{\link{conv_dim}}
 }
-
+\author{
+Matthew A. Birk, \email{matthewabirk@gmail.com}
+}

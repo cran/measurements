@@ -1,3 +1,8 @@
+version 1.2.0, 2018-03-21
+- conv_unit():	added "cmH2O" and "inH2O" as pressure unit options
+- conv_unit():	added "km_per_hr" and "mi_per_hr" as synonyms for "kph" and "mph", respectively
+- conv_unit():	fixed an issue where NAs in coordinates caused incorrect conversions
+
 -------------------------------------------------
 version 1.1.0, 2016-10-28
 - conv_multiunit(): new function
