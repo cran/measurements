@@ -1,12 +1,12 @@
-663d84fcfedc408189a5793e324890b4 *DESCRIPTION
+26653f9489bc6677fa21212a316551ce *DESCRIPTION
 09b0876261cbd18f356c63512d89afa5 *NAMESPACE
-d835d24ebb8d4fa3c3d9a4bcce9b3914 *NEWS
+572815b5d7420b5f0e0c698b195b1338 *NEWS
 db58e6c07968995c3eccbade670406cd *R/conv_dim.R
 a7200ea21d5b314f2a26696139fdb242 *R/conv_multiunit.R
-27ad53d24665334346493b5912a60c6f *R/conv_unit.R
+679184ba75f12e478eed8dd9ee49a2cd *R/conv_unit.R
 bacb2226ea4ed8725cca09dbd262563f *R/measurements.R
 49be7737557cd98c7a22b63e984bd8e9 *man/conv_dim.Rd
 6d00c38e8751cef20fd7ce74a3e1bc99 *man/conv_multiunit.Rd
-636bc8cf61fdf1cf543eb8a64d165be5 *man/conv_unit.Rd
+bb0c48865bc17f833c64ea3db349f30e *man/conv_unit.Rd
 d59be036cddd07860d1d98919f9ccde9 *man/conv_unit_options.Rd
 80b65ee03a38dc386f13985df09a4b2a *man/measurements.Rd

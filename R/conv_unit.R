@@ -41,6 +41,8 @@
 	data.frame(dim = 'coordinate', unit = 'deg_dec_min', std = NA),
 	data.frame(dim = 'coordinate', unit = 'deg_min_sec', std = NA),
 
+	data.frame(dim = 'count', unit = 'fmol', std = 1e15),
+	data.frame(dim = 'count', unit = 'pmol', std = 1e12),
 	data.frame(dim = 'count', unit = 'nmol', std = 1e9),
 	data.frame(dim = 'count', unit = 'umol', std = 1e6),
 	data.frame(dim = 'count', unit = 'mmol', std = 1e3),
@@ -107,10 +109,17 @@
 	data.frame(dim = 'length', unit = 'parsec', std = 1/149597870700/(6.48e5/pi)),
 	data.frame(dim = 'length', unit = 'point', std = 100/2.54*72),
 	
+	data.frame(dim = 'mass', unit = 'Da', std = 1 / 1.66053904020e-24),
+	data.frame(dim = 'mass', unit = 'fg', std = 1e15),
+	data.frame(dim = 'mass', unit = 'pg', std = 1e12),
+	data.frame(dim = 'mass', unit = 'ng', std = 1e9),
 	data.frame(dim = 'mass', unit = 'ug', std = 1e6),
 	data.frame(dim = 'mass', unit = 'mg', std = 1e3),
 	data.frame(dim = 'mass', unit = 'g', std = 1),
 	data.frame(dim = 'mass', unit = 'kg', std = 1e-3),
+	data.frame(dim = 'mass', unit = 'Mg', std = 1e-6),
+	data.frame(dim = 'mass', unit = 'Gg', std = 1e-9),
+	data.frame(dim = 'mass', unit = 'Tg', std = 1e-12),
 	data.frame(dim = 'mass', unit = 'Pg', std = 1e-15),
 	data.frame(dim = 'mass', unit = 'carat', std = 5),
 	data.frame(dim = 'mass', unit = 'metric_ton', std = 1e-6),
@@ -210,12 +219,12 @@ conv_unit_options = lapply(split(.conversions$unit, .conversions$dim, drop = TRU
 #'	 \item{Angle}{degree, radian, grad, arcmin, arcsec, turn}
 #'	 \item{Area}{nm2, um2, mm2, cm2, m2, hectare, km2, inch2, ft2, yd2, acre, mi2, naut_mi2}
 #'	 \item{Coordinate}{dec_deg, deg_dec_min, deg_min_sec (see note)}
-#'	 \item{Count}{nmol, umol, mmol, mol}
+#'	 \item{Count}{fmol, pmol, nmol, umol, mmol, mol}
 #'	 \item{Duration}{nsec, usec, msec, sec, min, hr, day, wk, mon, yr, dec, cen, mil, Ma}
 #'	 \item{Energy}{J, kJ, erg, cal, Cal, Wsec, kWh, MWh, BTU}
 #'	 \item{Flow}{ml_per_sec, ml_per_min, ml_per_hr, l_per_sec, l_per_min, l_per_hr, m3_per_sec, m3_per_min, m3_per_hr, gal_per_sec, gal_per_min, gal_per_hr, ft3_per_sec, ft3_per_min, ft3_per_hr, Sv}
 #'	 \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
-#'	 \item{Mass}{ug, mg, g, kg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
+#'	 \item{Mass}{Da, fg, pg, ng, ug, mg, g, kg, Mg, Gg, Tg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
 #'	 \item{Power}{uW, mW, W, kW, MW, GW, erg_per_sec, cal_per_sec, cal_per_hr, Cal_per_sec, Cal_per_hr, BTU_per_sec, BTU_per_hr, hp}
 #'	 \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, cmH2O, inH2O, mbar, bar, dbar, psi}
 #'	 \item{Speed}{mm_per_sec, cm_per_sec, m_per_sec, km_per_sec, inch_per_sec, ft_per_sec, kph, mph, km_per_day, mi_per_day, knot, mach, light}

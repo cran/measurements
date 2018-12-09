@@ -23,12 +23,12 @@ Converts common units of measurement for a variety of dimensions. See \code{\lin
  \item{Angle}{degree, radian, grad, arcmin, arcsec, turn}
  \item{Area}{nm2, um2, mm2, cm2, m2, hectare, km2, inch2, ft2, yd2, acre, mi2, naut_mi2}
  \item{Coordinate}{dec_deg, deg_dec_min, deg_min_sec (see note)}
- \item{Count}{nmol, umol, mmol, mol}
+ \item{Count}{fmol, pmol, nmol, umol, mmol, mol}
  \item{Duration}{nsec, usec, msec, sec, min, hr, day, wk, mon, yr, dec, cen, mil, Ma}
  \item{Energy}{J, kJ, erg, cal, Cal, Wsec, kWh, MWh, BTU}
  \item{Flow}{ml_per_sec, ml_per_min, ml_per_hr, l_per_sec, l_per_min, l_per_hr, m3_per_sec, m3_per_min, m3_per_hr, gal_per_sec, gal_per_min, gal_per_hr, ft3_per_sec, ft3_per_min, ft3_per_hr, Sv}
  \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
- \item{Mass}{ug, mg, g, kg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
+ \item{Mass}{Da, fg, pg, ng, ug, mg, g, kg, Mg, Gg, Tg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
  \item{Power}{uW, mW, W, kW, MW, GW, erg_per_sec, cal_per_sec, cal_per_hr, Cal_per_sec, Cal_per_hr, BTU_per_sec, BTU_per_hr, hp}
  \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, cmH2O, inH2O, mbar, bar, dbar, psi}
  \item{Speed}{mm_per_sec, cm_per_sec, m_per_sec, km_per_sec, inch_per_sec, ft_per_sec, kph, mph, km_per_day, mi_per_day, knot, mach, light}
