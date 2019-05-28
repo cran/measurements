@@ -1,4 +1,9 @@
 -------------------------------------------------
+version 1.4.0, 2019-05-27
+- conv_unit():	added file_size dimension
+- conv_unit():	added synonyms for a number of units
+
+-------------------------------------------------
 version 1.3.0, 2018-12-09
 - conv_unit():	added "pmol" and "fmol" as count unit options
 - conv_unit():	added "Da" (Dalton), "Tg", "Gg", "Mg", ng", "pg", and "fg" as mass unit options

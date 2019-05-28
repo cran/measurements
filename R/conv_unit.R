@@ -31,6 +31,7 @@
 	data.frame(dim = 'area', unit = 'hectare', std = 1e-4),
 	data.frame(dim = 'area', unit = 'km2', std = 1e-6),
 	data.frame(dim = 'area', unit = 'inch2', std = (100/2.54)^2),
+	data.frame(dim = 'area', unit = 'in2', std = (100/2.54)^2),
 	data.frame(dim = 'area', unit = 'ft2', std = (100/2.54/12)^2),
 	data.frame(dim = 'area', unit = 'yd2', std = (100/2.54/36)^2),
 	data.frame(dim = 'area', unit = 'acre', std = (100/2.54/12)^2/43560),
@@ -40,7 +41,9 @@
 	data.frame(dim = 'coordinate', unit = 'dec_deg', std = NA),
 	data.frame(dim = 'coordinate', unit = 'deg_dec_min', std = NA),
 	data.frame(dim = 'coordinate', unit = 'deg_min_sec', std = NA),
-
+	data.frame(dim = 'coordinate', unit = 'dms', std = NA),
+	data.frame(dim = 'coordinate', unit = 'DMS', std = NA),
+	
 	data.frame(dim = 'count', unit = 'fmol', std = 1e15),
 	data.frame(dim = 'count', unit = 'pmol', std = 1e12),
 	data.frame(dim = 'count', unit = 'nmol', std = 1e9),
@@ -54,13 +57,19 @@
 	data.frame(dim = 'duration', unit = 'sec', std = 1),
 	data.frame(dim = 'duration', unit = 'min', std = 1/60),
 	data.frame(dim = 'duration', unit = 'hr', std = 1/3600),
+	data.frame(dim = 'duration', unit = 'hour', std = 1/3600),
 	data.frame(dim = 'duration', unit = 'day', std = 1/86400),
 	data.frame(dim = 'duration', unit = 'wk', std = 1/604800),
+	data.frame(dim = 'duration', unit = 'week', std = 1/604800),
 	data.frame(dim = 'duration', unit = 'mon', std = 1/(86400*365.25/12)),
 	data.frame(dim = 'duration', unit = 'yr', std = 1/(86400*365.25)),
+	data.frame(dim = 'duration', unit = 'year', std = 1/(86400*365.25)),
 	data.frame(dim = 'duration', unit = 'dec', std = 1/(86400*3652.5)),
+	data.frame(dim = 'duration', unit = 'decade', std = 1/(86400*3652.5)),
 	data.frame(dim = 'duration', unit = 'cen', std = 1/(86400*36525)),
+	data.frame(dim = 'duration', unit = 'century', std = 1/(86400*36525)),
 	data.frame(dim = 'duration', unit = 'mil', std = 1/(86400*365250)),
+	data.frame(dim = 'duration', unit = 'millenium', std = 1/(86400*365250)),
 	data.frame(dim = 'duration', unit = 'Ma', std = 1/(86400*365250000)),
 
 	data.frame(dim = 'energy', unit = 'J', std = 1),
@@ -72,12 +81,28 @@
 	data.frame(dim = 'energy', unit = 'kWh', std = 1/3.6e6),
 	data.frame(dim = 'energy', unit = 'MWh', std = 1/3.6e9),
 	data.frame(dim = 'energy', unit = 'BTU', std = 1/1055.05585262),
-
+	
+	data.frame(dim = 'file_size', unit = 'byte', std = 1),
+	data.frame(dim = 'file_size', unit = 'KB', std = 2^(-10)),
+	data.frame(dim = 'file_size', unit = 'kB', std = 2^(-10)),
+	data.frame(dim = 'file_size', unit = 'MB', std = 2^(-20)),
+	data.frame(dim = 'file_size', unit = 'GB', std = 2^(-30)),
+	data.frame(dim = 'file_size', unit = 'TB', std = 2^(-40)),
+	data.frame(dim = 'file_size', unit = 'PB', std = 2^(-50)),
+	data.frame(dim = 'file_size', unit = 'bit', std = 8),
+	data.frame(dim = 'file_size', unit = 'Kbit', std = 8/1e3),
+	data.frame(dim = 'file_size', unit = 'kbit', std = 8/1e3),
+	data.frame(dim = 'file_size', unit = 'Mbit', std = 8/1e6),
+	data.frame(dim = 'file_size', unit = 'Gbit', std = 8/1e9),
+	data.frame(dim = 'file_size', unit = 'Tbit', std = 8/1e12),
+	data.frame(dim = 'file_size', unit = 'Pbit', std = 8/1e15),
+	
 	data.frame(dim = 'flow', unit = 'ml_per_sec', std = 1e3),
 	data.frame(dim = 'flow', unit = 'ml_per_min', std = 1e3*60),
 	data.frame(dim = 'flow', unit = 'ml_per_hr', std = 1e3*3600),
 	data.frame(dim = 'flow', unit = 'l_per_sec', std = 1),
 	data.frame(dim = 'flow', unit = 'l_per_min', std = 60),
+	data.frame(dim = 'flow', unit = 'LPM', std = 60),
 	data.frame(dim = 'flow', unit = 'l_per_hr', std = 3600),
 	data.frame(dim = 'flow', unit = 'm3_per_sec', std = 1e-3),
 	data.frame(dim = 'flow', unit = 'm3_per_min', std = 1e-3*60),
@@ -85,6 +110,7 @@
 	data.frame(dim = 'flow', unit = 'Sv', std = 1e-9),
 	data.frame(dim = 'flow', unit = 'gal_per_sec', std = 1/3.785411784),
 	data.frame(dim = 'flow', unit = 'gal_per_min', std = 1/3.785411784*60),
+	data.frame(dim = 'flow', unit = 'GPM', std = 1/3.785411784*60),
 	data.frame(dim = 'flow', unit = 'gal_per_hr', std = 1/3.785411784*3600),
 	data.frame(dim = 'flow', unit = 'ft3_per_sec', std = 61.0237440947323/1728),
 	data.frame(dim = 'flow', unit = 'ft3_per_min', std = 61.0237440947323/1728*60),
@@ -100,12 +126,17 @@
 	data.frame(dim = 'length', unit = 'km', std = 1e-3),
 	data.frame(dim = 'length', unit = 'inch', std = 100/2.54),
 	data.frame(dim = 'length', unit = 'ft', std = 100/2.54/12),
+	data.frame(dim = 'length', unit = 'foot', std = 100/2.54/12),
+	data.frame(dim = 'length', unit = 'feet', std = 100/2.54/12),
 	data.frame(dim = 'length', unit = 'yd', std = 100/2.54/36),
+	data.frame(dim = 'length', unit = 'yard', std = 100/2.54/36),
 	data.frame(dim = 'length', unit = 'fathom', std = 100/2.54/72),
 	data.frame(dim = 'length', unit = 'mi', std = 100/2.54/12/5280),
+	data.frame(dim = 'length', unit = 'mile', std = 100/2.54/12/5280),
 	data.frame(dim = 'length', unit = 'naut_mi', std = 1/1852),
 	data.frame(dim = 'length', unit = 'au', std = 1/149597870700),
 	data.frame(dim = 'length', unit = 'light_yr', std = 1/9460730472580800),
+	data.frame(dim = 'length', unit = 'light_year', std = 1/9460730472580800),
 	data.frame(dim = 'length', unit = 'parsec', std = 1/149597870700/(6.48e5/pi)),
 	data.frame(dim = 'length', unit = 'point', std = 100/2.54*72),
 	
@@ -158,6 +189,7 @@
 	data.frame(dim = 'pressure', unit = 'bar', std = 1.01325),
 	data.frame(dim = 'pressure', unit = 'dbar', std = 10.1325),
 	data.frame(dim = 'pressure', unit = 'psi', std = 14.69594877551),
+	data.frame(dim = 'pressure', unit = 'PSI', std = 14.69594877551),
 	
 	data.frame(dim = 'speed', unit = 'mm_per_sec', std = 1e3),
 	data.frame(dim = 'speed', unit = 'cm_per_sec', std = 100),
@@ -222,6 +254,7 @@ conv_unit_options = lapply(split(.conversions$unit, .conversions$dim, drop = TRU
 #'	 \item{Count}{fmol, pmol, nmol, umol, mmol, mol}
 #'	 \item{Duration}{nsec, usec, msec, sec, min, hr, day, wk, mon, yr, dec, cen, mil, Ma}
 #'	 \item{Energy}{J, kJ, erg, cal, Cal, Wsec, kWh, MWh, BTU}
+#'	 \item{File size}{byte, KB, MB, GB, TB, PB, bit, Kbit, Mbit, Gbit, Tbit, Pbit}
 #'	 \item{Flow}{ml_per_sec, ml_per_min, ml_per_hr, l_per_sec, l_per_min, l_per_hr, m3_per_sec, m3_per_min, m3_per_hr, gal_per_sec, gal_per_min, gal_per_hr, ft3_per_sec, ft3_per_min, ft3_per_hr, Sv}
 #'	 \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
 #'	 \item{Mass}{Da, fg, pg, ng, ug, mg, g, kg, Mg, Gg, Tg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}

@@ -26,6 +26,7 @@ Converts common units of measurement for a variety of dimensions. See \code{\lin
  \item{Count}{fmol, pmol, nmol, umol, mmol, mol}
  \item{Duration}{nsec, usec, msec, sec, min, hr, day, wk, mon, yr, dec, cen, mil, Ma}
  \item{Energy}{J, kJ, erg, cal, Cal, Wsec, kWh, MWh, BTU}
+ \item{File size}{byte, KB, MB, GB, TB, PB, bit, Kbit, Mbit, Gbit, Tbit, Pbit}
  \item{Flow}{ml_per_sec, ml_per_min, ml_per_hr, l_per_sec, l_per_min, l_per_hr, m3_per_sec, m3_per_min, m3_per_hr, gal_per_sec, gal_per_min, gal_per_hr, ft3_per_sec, ft3_per_min, ft3_per_hr, Sv}
  \item{Length}{angstrom, nm, um, mm, cm, dm, m, km, inch, ft, yd, fathom, mi, naut_mi, au, light_yr, parsec, point}
  \item{Mass}{Da, fg, pg, ng, ug, mg, g, kg, Mg, Gg, Tg, Pg, carat, metric_ton, oz, lbs, short_ton, long_ton, stone}
