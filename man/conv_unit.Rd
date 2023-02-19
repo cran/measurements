@@ -34,6 +34,7 @@ Converts common units of measurement for a variety of dimensions. See \code{\lin
  \item{Pressure}{uatm, atm, Pa, hPa, kPa, torr, mmHg, inHg, cmH2O, inH2O, mbar, bar, dbar, psi}
  \item{Speed}{mm_per_sec, cm_per_sec, m_per_sec, km_per_sec, inch_per_sec, ft_per_sec, kph, mph, km_per_day, mi_per_day, knot, mach, light}
  \item{Temperature}{C, F, K, R}
+ \item{Torque}{N-m, ft-lbs, inch-lbs}
  \item{Volume}{ul, ml, dl, l, cm3, dm3, m3, km3, us_tsp, us_tbsp, us_oz, us_cup, us_pint, us_quart, us_gal, inch3, ft3, mi3, imp_tsp, imp_tbsp, imp_oz, imp_cup, imp_pint, imp_quart, imp_gal}
 }
 The conversion values have been defined based primarily from international weight and measurement authorities (e.g. General Conference on Weights and Measures, International Committee for Weights and Measures, etc.). While much effort was made to make conversions as accurate as possible, you should check the accuracy of conversions to ensure that conversions are precise enough for your applications.

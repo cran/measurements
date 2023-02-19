@@ -5,7 +5,9 @@
 \name{conv_unit_options}
 \alias{conv_unit_options}
 \title{Unit of Measurement Conversion Options}
-\format{A list with all units available for conversion using \code{\link{conv_unit}}.}
+\format{
+A list with all units available for conversion using \code{\link{conv_unit}}.
+}
 \source{
 The conversion values have been defined based primarily from international weight and measurement authorities (e.g. General Conference on Weights and Measures, International Committee for Weights and Measures, etc.). While much effort was made to make conversions as accurate as possible, you should check the accuracy of conversions to ensure that conversions are precise enough for your applications.
 }

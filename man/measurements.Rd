@@ -4,7 +4,6 @@
 \encoding{UTF-8}
 \name{measurements}
 \alias{measurements}
-\alias{measurements-package}
 \title{Tools for Units of Measurement}
 \description{
 Collection of tools to make working with physical measurements easier. Convert between metric and imperial units, or calculate a dimension's unknown value from other dimensions' measurements.
