@@ -353,8 +353,8 @@ conv_unit = function(x, from, to){
 		return(prop*get(paste('range',to,sep=''))+get(paste('frz',to,sep='')))
 	}
 	if(from %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec') & to %in% c('dec_deg', 'deg_dec_min', 'deg_min_sec')){
-		neg = grepl('-', x)
-		x = gsub('-', '', x)
+		neg = grepl('^-', x)
+		x = gsub('^-', '', x)
 		NAs = is.na(x)
 		x_na_free = x[!NAs]
 		if(from == 'dec_deg') secs = as.numeric(x_na_free) * 3600

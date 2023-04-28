@@ -1,8 +1,8 @@
 Package: measurements
 Type: Package
 Title: Tools for Units of Measurement
-Version: 1.5.0
-Date: 2023-02-19
+Version: 1.5.1
+Date: 2023-04-28
 Author: Matthew A. Birk
 Maintainer: Matthew A. Birk <matthewabirk@gmail.com>
 Description: Collection of tools to make working with physical measurements
@@ -12,6 +12,6 @@ License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-02-19 19:20:09 UTC; matthewbirk
+Packaged: 2023-04-28 18:54:42 UTC; matthewbirk
 Repository: CRAN
-Date/Publication: 2023-02-19 20:00:02 UTC
+Date/Publication: 2023-04-28 19:40:02 UTC
